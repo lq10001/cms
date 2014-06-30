@@ -1,0 +1,56 @@
+
+<div class="pageContent">
+	<form method="post" action="${ctxPath}/user/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+		
+		<input type="hidden" id="id" name="id" value="${user.id!}">
+
+		<div class="pageFormContent" layoutH="56">
+
+			<p>
+				<label>姓名</label>
+				<input name="name" class="required" type="text" size="30" value="${user.name!}" alt=""/>
+			</p>
+
+            <% if(user.id == null){ %>
+			<p>
+				<label>密码</label>
+				<input name="password" class="required" type="text" size="30" value="${user.password!}" alt=""/>
+			</p>
+            <%}%>
+
+            <p>
+                <label>email</label>
+                <input name="email" class="required" type="text" size="30" value="${user.email!}" alt=""/>
+            </p>
+
+
+			<p>
+				<label>电话</label>
+				<input name="phone"  type="text" size="30" value="${user.phone!}" alt=""/>
+			</p>
+
+
+			<p>
+				<label>用户类型</label>
+
+                <select name="type" class="combox">
+                    <option value="1" selected="selected">
+                        管理员
+                    </option>
+                    <option value="0" >
+                        操作员
+                    </option>
+                </select>
+			</p>
+						
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

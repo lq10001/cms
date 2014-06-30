@@ -1,0 +1,30 @@
+
+<div class="pageContent">
+  <form method="post" action="${ctxPath}/newstype/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+
+    <input type="hidden" id="id" name="id" value="${newstype.id!}">
+
+		<div class="pageFormContent" layoutH="56">
+
+			
+			<dl>
+                <dt>编号</dt>
+                <dd><input name="id"  type="text" size="30" value="${newstype.id!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>名称</dt>
+                <dd><input name="name"  type="text" size="30" value="${newstype.name!}" alt=""/></dd>
+            </dl>
+						
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

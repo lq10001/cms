@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="CMS2.0:war exploded">
+    <output-path>$PROJECT_DIR$/target/com.ly</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="CMS2.0/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="CMS2.0" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.nutz:nutz:1.b.50" />
+          <element id="library" level="project" name="Maven: org.beetl:beetl-core:2.0.6" />
+          <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.2" />
+          <element id="library" level="project" name="Maven: org.abego.treelayout:org.abego.treelayout.core:1.0.1" />
+          <element id="library" level="project" name="Maven: org.antlr:antlr4-annotations:4.2" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.1.40" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

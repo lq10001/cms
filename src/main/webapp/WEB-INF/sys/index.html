@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>自动化代码平台</title>
+
+<link href="${ctxPath}/dwz/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="${ctxPath}/dwz/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="${ctxPath}/dwz/themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="${ctxPath}/dwz/uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen"/>
+<!--[if IE]>
+<link href="${ctxPath}/dwz/themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
+<![endif]-->
+
+<script src="${ctxPath}/dwz/js/speedup.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/jquery.validate.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/xheditor/xheditor-1.1.14-zh-cn.min.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/uploadify/scripts/swfobject.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/uploadify/scripts/jquery.uploadify.v2.1.0.js" type="text/javascript"></script>
+
+
+<script src="${ctxPath}/dwz/js/dwz.core.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.util.date.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.validate.method.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.regional.zh.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.barDrag.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.drag.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.tree.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.accordion.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.ui.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.theme.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.switchEnv.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.alertMsg.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.contextmenu.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.navTab.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.tab.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.resize.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.dialog.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.dialogDrag.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.sortDrag.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.cssTable.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.stable.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.taskBar.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.ajax.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.pagination.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.database.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.datepicker.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.effects.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.panel.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.checkbox.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.history.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.combox.js" type="text/javascript"></script>
+<script src="${ctxPath}/dwz/js/dwz.print.js" type="text/javascript"></script>
+<!--
+<script src="dwzbin/dwz.min.js" type="text/javascript"></script>
+-->
+<script src="${ctxPath}/dwz/js/dwz.regional.zh.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function(){
+	DWZ.init("${ctxPath}/dwz/dwz.frag.xml", {
+		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
+//		loginUrl:"login.html",	// 跳到登录页面
+		statusCode:{ok:200, error:300, timeout:301}, //【可选】
+		pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
+		debug:false,	// 调试模式 【true|false】
+		callback:function(){
+			initEnv();
+			$("#themeList").theme({themeBase:"themes"}); // themeBase 相对于index页面的主题base路径
+		}
+	});
+});
+
+</script>
+</head>
+
+<body scroll="no">
+	<div id="layout">
+		<div id="header">
+			<div class="headerNav">
+                <div style="padding-top: 12px;padding-left: 20px; color: #FFF; font-size: 24px;">MK 自动化代码平台</div>
+				<ul class="nav">
+                    <!--
+					<li id="switchEnvBox"><a href="javascript:">（<span>成都</span>）切换城市</a>
+						<ul>
+							<li><a href="sidebar_1.html">绵阳</a></li>
+							<li><a href="sidebar_2.html">达州</a></li>
+							<li><a href="sidebar_2.html">泸州</a></li>
+							<li><a href="sidebar_2.html">雅安</a></li>
+							<li><a href="sidebar_2.html">广安</a></li>
+							<li><a href="sidebar_2.html">广元</a></li>
+							<li><a href="sidebar_2.html">内江</a></li>
+						</ul>
+					</li>
+					-->
+					<li><a href="#" target="_blank">网站首页</a></li>
+					<li><a href="#" target="dialog" width="600">OA系统</a></li>
+					<li><a href="#" target="_blank">修改密码</a></li>
+					<li><a href="#" target="_blank">锁屏</a></li>
+					<li><a href="/">退出</a></li>
+				</ul>
+				<ul class="themeList" id="themeList">
+					<li theme="default"><div class="selected">蓝色</div></li>
+					<li theme="green"><div>绿色</div></li>
+					<!--<li theme="red"><div>红色</div></li>-->
+					<li theme="purple"><div>紫色</div></li>
+					<li theme="silver"><div>银色</div></li>
+					<li theme="azure"><div>天蓝</div></li>
+				</ul>
+			</div>
+
+			<!-- navMenu -->
+			
+		</div>
+
+		<div id="leftside">
+			<div id="sidebar_s">
+				<div class="collapse">
+					<div class="toggleCollapse"><div></div></div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>
+
+				<div class="accordion" fillSpace="sidebar">
+
+                    ${menu_tree}
+
+				</div>
+			</div>
+		</div>
+		<div id="container">		
+			<div id="navTab" class="tabsPage">
+				<div class="tabsPageHeader">
+					<div class="tabsPageHeaderContent">
+						<ul class="navTab-tab">
+							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">我的主页</span></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<ul class="tabsMoreList">
+					<li><a href="javascript:;">我的主页</a></li>
+				</ul>
+				<div class="navTab-panel tabsPageContent layoutBox">
+					<div class="page unitBox">
+						<div class="accountInfo">
+							<p><span>四川摩奇科技</span></p>
+							<p>自动化代码平台</p>
+							
+						</div>
+
+						
+						<div style="width:100%;position: absolute;top:60px;right:0" layoutH="80">
+                            <br/>
+                            <br/>
+							<p> <h2 style="margin-left: 10px;"> <--&nbsp;请点击左边的菜单进行操作！</h2></p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="footer">Copyright &copy; 2013 <a href="http://www.schj.gov.cn/" target="dialog">四川摩奇科技</a></div>
+
+
+</body>
+</html>

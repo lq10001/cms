@@ -1,0 +1,50 @@
+
+<div class="pageContent">
+  <form method="post" action="${ctxPath}/news/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+
+    <input type="hidden" id="id" name="id" value="${news.id!}">
+
+		<div class="pageFormContent" layoutH="56">
+
+			
+			<dl>
+                <dt>编号</dt>
+                <dd><input name="id"  type="text" size="30" value="${news.id!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>作者</dt>
+                <dd><input name="userid"  type="text" size="30" value="${news.userid!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>状态</dt>
+                <dd><input name="state"  type="text" size="30" value="${news.state!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>标题</dt>
+                <dd><input name="title"  type="text" size="30" value="${news.title!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>内容</dt>
+                <dd><input name="content"  type="text" size="30" value="${news.content!}" alt=""/></dd>
+            </dl>
+			
+			<dl>
+                <dt>添加日期</dt>
+                <dd><input name="adddate"  type="text" size="30" value="${news.adddate!}" alt=""/></dd>
+            </dl>
+						
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
