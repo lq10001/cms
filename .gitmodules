@@ -10,3 +10,6 @@
 [submodule "src/main/webapp/sys"]
 	path = src/main/webapp/sys
 	url = https://git.oschina.net/dongfangx/SYS-RESOURCES-WEBSERVER-NUTZ-JAVA.git
+[submodule "src/main/webapp/AmazeUI"]
+	path = src/main/webapp/AmazeUI
+	url = https://git.oschina.net/dongfangx/AmazeUI.git
