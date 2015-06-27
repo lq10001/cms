@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="CMS2.0:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="com.ly.war">
+    <root id="archive" name="cms.war">
       <element id="artifact" artifact-name="CMS2.0:war exploded" />
     </root>
   </artifact>
