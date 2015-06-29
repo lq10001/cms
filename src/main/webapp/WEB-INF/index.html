@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Landing Page | Amaze UI Example</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="${ctxPath}/AmazeUI/i/favicon.png">
+  <link rel="stylesheet" href="${ctxPath}/AmazeUI/css/amazeui.min.css"/>
+  <style>
+
+
+    .get {
+      background: #10a0ea;
+      color: #fff;
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 15px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+  </style>
+</head>
+<body>
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="${ctxPath}">六亿科技</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li class="am-active"><a href="${ctxPath}">首页</a></li>
+        <li><a href="#">产品</a></li>
+        <li><a href="#">咨询</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>
+      </div>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="get">
+  <div class="am-g">
+    <div class="am-u-lg-12">
+      <h1 class="get-title">六亿科技 - 做全球最强企业管理软件解决方案提供商</h1>
+
+      <p>
+        期待你的参与，六亿科技将帮助各行业不同规模的企业实现卓越运营。
+      </p>
+
+      <p>
+        联系电话:18982280521 &nbsp;&nbsp;&nbsp;&nbsp;交流Q群: 239976281
+      </p>
+
+      <p>
+        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">试用产品</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="detail" style="background-color:#f8f8f8;">
+  <div class="am-g am-container">
+
+
+    <h2 class="detail-h2">
+      最新产品
+      <span class="am-fr sm-block" style="line-height: 33px; font-weight:normal; font-size:14px ;">
+        <a href="textile.php">更多产品...</a></span>
+    </h2>
+
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview:false }">
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想"
+                    />
+            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方"
+                    />
+            <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信"
+                    />
+            <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+      <div class="am-gallery-item">
+        <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+          <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                  />
+          <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+          <div class="am-gallery-desc">2375-09-26</div>
+        </a>
+      </div>
+    </li>
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+
+
+
+    </ul>
+  </div>
+</div>
+
+<div class="detail" style="background-color:#eee;">
+  <div class="am-g am-container">
+
+
+    <h2 class="detail-h2">
+      最新资讯
+      <span class="am-fr sm-block" style="line-height: 33px; font-weight:normal; font-size:14px ;">
+        <a href="textile.php">更多产品...</a></span>
+    </h2>
+
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview:false }">
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想"
+                    />
+            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方"
+                    />
+            <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信"
+                    />
+            <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
+                    />
+            <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+
+
+
+    </ul>
+  </div>
+</div>
+
+
+<footer class="footer" style="background-color:#eee;">
+  <p>© 2014 <a href="http://www.yunshipei.com" target="_blank">AllMobilize, Inc.</a> Licensed under <a
+      href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by the AmazeUI Team.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="${ctxPath}/AmazeUI/js/polyfill/rem.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/polyfill/respond.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="${ctxPath}/AmazeUI/js/jquery.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>
