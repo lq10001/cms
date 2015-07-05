@@ -1,0 +1,94 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent">
+  <form method="post" action="${ctxPath}/webinfo/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${webinfo.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_webname" class="control-label x85">网站名</label>
+						<input type="text" name="webname" id="j_webname" value="${webinfo.webname!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_weburl" class="control-label x85">网站地址</label>
+						<input type="text" name="weburl" id="j_weburl" value="${webinfo.weburl!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_logourl" class="control-label x85">logo</label>
+						<input type="text" name="logourl" id="j_logourl" value="${webinfo.logourl!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_slogourl" class="control-label x85">slogo</label>
+						<input type="text" name="slogourl" id="j_slogourl" value="${webinfo.slogourl!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_mlogourl" class="control-label x85">mlogo</label>
+						<input type="text" name="mlogourl" id="j_mlogourl" value="${webinfo.mlogourl!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_recordno" class="control-label x85">备案号</label>
+						<input type="text" name="recordno" id="j_recordno" value="${webinfo.recordno!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_phone" class="control-label x85">联系电话</label>
+						<input type="text" name="phone" id="j_phone" value="${webinfo.phone!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_qq" class="control-label x85">QQ</label>
+						<input type="text" name="qq" id="j_qq" value="${webinfo.qq!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_email" class="control-label x85">EMail</label>
+						<input type="text" name="email" id="j_email" value="${webinfo.email!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

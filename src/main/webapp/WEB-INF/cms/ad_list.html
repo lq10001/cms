@@ -1,70 +1,69 @@
 
-<form id="pagerForm" method="post" action="${ctxPath}/ad">
-    <input type="hidden" name="pageNum" value="${page.pageNum}" />
-    <input type="hidden" name="numPerPage" value="${page.pageSize}" />
-</form>
+<%
+var selected1 = "";
+%>
 
-<div class="pageHeader">
-	<form onsubmit="return navTabSearch(this);" action="${ctxPath}/ad" rel="pagerForm" method="post">
-	<div class="searchBar">
-		<table class="searchContent">
-			<tr>
-			
-				<td>
-					<label>名称：</label>
-					<input type="text"  id="name" name="name" value="${ad.name!}"/>
-				</td>
-			
-				<td>
-					<label>联系人：</label>
-					<input type="text"  id="contact" name="contact" value="${ad.contact!}"/>
-				</td>
-			
-				<td>
-					<label>联系电话：</label>
-					<input type="text"  id="phone" name="phone" value="${ad.phone!}"/>
-				</td>
-																																		
-				<td>
-					<div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div>
-				</td>
-			</tr>
-		</table>
-		<div class="subBar">
+<div class="bjui-pageHeader">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/ad" method="post">
+
+
+		<input type="hidden" name="pageSize" value="${page.pageSize}" />
+		<input type="hidden" name="pageCurrent" value="${page.pageCurrent}" />
+
+		<div class="bjui-searchBar">
+
+				<label for="j_name">名称：</label>
+				<input type="text"  id="j_name" name="name" value="${ad.name!}" class="form-control" size="10"/>
+
+				<label for="j_contact">联系人：</label>
+				<input type="text"  id="j_contact" name="contact" value="${ad.contact!}" class="form-control" size="10"/>
+
+				<label for="j_phone">联系电话：</label>
+				<input type="text"  id="j_phone" name="phone" value="${ad.phone!}" class="form-control" size="10"/>
+
+			<button type="submit" class="btn-default" data-icon="search">查询</button>
+			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+
+			<div class="pull-right">
+
+				<a  href="${ctxPath}/ad/edit" class="btn btn-default" data-id="dialog_ad_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true">添加</a>					
+
+				<a  href="${ctxPath}/ad/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_ad_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true">编辑</a>
+
+				<a  href="${ctxPath}/ad/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_ad_edit" data-toggle="dialog"
+					data-width="500" data-height="300" data-mask="true">复制添加</a>
+
+				<a href="${ctxPath}/ad/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
+
+
+				&nbsp;&nbsp;
+			</div>
+
 		</div>
-		
-	</div>
+
 	</form>
 </div>
-
-<div class="pageContent">
-	<div class="panelBar">
-		<ul class="toolBar">
-			<l1><a class="add" href="${ctxPath}/ad/edit" target="dialog" rel="dlg_form" mask="true" title="添加菜单" width="520" height="360"><span>添加</span></a></l1>
-			<li><a class="delete" href="${ctxPath}/ad/del?id={sid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-            <l1><a class="edit" href="${ctxPath}/ad/edit?id={sid}" target="dialog" rel="dlg_form" mask="true" title="修改菜单" width="520" height="360"><span>修改</span></a></l1>
-		
-			<li class="line">line</li>
-		</ul>
-	</div>
-	<table class="table" width="100%" layoutH="138">
+<div class="bjui-pageContent">
+	<table  data-toggle="tablefixed" data-width="100%"  data-layout-h="0" data-nowrap="true">
 		<thead>
-			<tr>
+		<tr>
 
-			
-				<th>编号</th>
-			
-				<th>名称</th>
-			
-				<th>广告图片</th>
-			
-				<th>联系人</th>
-			
-				<th>联系电话</th>
-			
-				<th>email</th>
-			
-			</tr>
+
+					<th width="50">编号</th>
+
+					<th>名称</th>
+
+					<th>广告图片</th>
+
+					<th>联系人</th>
+
+					<th>联系电话</th>
+
+					<th>email</th>
+
+		</tr>
 		</thead>
 		<tbody>
 
@@ -72,50 +71,70 @@
         for(obj in list_obj){
         %>
 
-            <tr target="sid" rel="${obj.id}">
+            <tr data-id="${obj.id}">
 
-            
-				<td>
-					 ${obj.id!}
-				</td>
-			
-				<td>
-					 ${obj.name!}
-				</td>
-			
-				<td>
-					 ${obj.imageurl!}
-				</td>
-			
-				<td>
-					 ${obj.contact!}
-				</td>
-			
-				<td>
-					 ${obj.phone!}
-				</td>
-			
-				<td>
-					 ${obj.email!}
-				</td>
-				
+
+
+			<td>
+				 ${obj.id!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.name!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.imageurl!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.contact!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.phone!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.email!}
+			</td>
+
+
             </tr>    
          <%}%>   
 
 		</tbody>
 	</table>
-    <div class="panelBar">
-        <div class="pages">
-            <span>显示</span>
-            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">40</option>
-                <option value="50">50</option>
-            </select>
-            <span>条，共${page.recordCount}条</span>
-        </div>
+</div>
 
-        <div class="pagination" targetType="navTab" totalCount="${page.recordCount}" numPerPage="${page.pageSize}" pageNumShown="5" currentPage="${page.pageNumber}"></div>
-    </div>
+<div class="bjui-pageFooter">
+	<div class="pages">
+		<span>每页&nbsp;</span>
+		<div class="selectPagesize">
+			<select data-toggle="selectpicker" data-toggle-change="changepagesize">
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+		</div>
+		<span>&nbsp;条，共 ${page.recordCount} 条</span>
+	</div>
+	<div class="pagination-box" data-toggle="pagination" data-total="${page.recordCount}" data-page-size="20" data-page-current="${page.pageNumber}">
+	</div>
 </div>

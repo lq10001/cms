@@ -1,6 +1,6 @@
 package  com.ly.cms.service;
 
-import com.ly.cms.vo.Ad;
+import com.ly.cms.vo.Webmenu;
 import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
@@ -14,25 +14,25 @@ import java.util.List;
 
 
 @IocBean(fields = { "dao" })
-public class AdService extends IdEntityService<Ad> {
+public class WebmenuService extends IdEntityService<Webmenu> {
 
-	public static String CACHE_NAME = "ad";
-    public static String CACHE_COUNT_KEY = "ad_count";
+	public static String CACHE_NAME = "webmenu";
+    public static String CACHE_COUNT_KEY = "webmenu_count";
 
-    public List<Ad> queryCache(Condition c,Page p)
+    public List<Webmenu> queryCache(Condition c,Page p)
     {
-        List<Ad> list_ad = null;
-        String cacheKey = "ad_list_" + p.getPageCurrent();
+        List<Webmenu> list_webmenu = null;
+        String cacheKey = "webmenu_list_" + p.getPageCurrent();
 
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
         if(cache.get(cacheKey) == null)
         {
-            list_ad = this.query(c, p);
-            cache.put(new Element(cacheKey, list_ad));
+            list_webmenu = this.query(c, p);
+            cache.put(new Element(cacheKey, list_webmenu));
         }else{
-            list_ad = (List<Ad>)cache.get(cacheKey).getObjectValue();
+            list_webmenu = (List<Webmenu>)cache.get(cacheKey).getObjectValue();
         }
-        return list_ad;
+        return list_webmenu;
     }
 
     public int listCount(Condition c)

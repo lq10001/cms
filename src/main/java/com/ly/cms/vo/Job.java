@@ -6,8 +6,8 @@ import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.View;
 
-@Table("news")
-public class News{
+@Table("job")
+public class Job{
 
 	@Id
 	@Column
@@ -17,16 +17,25 @@ public class News{
 	private String title;
 
 	@Column
-	private Long userid;
+	private String author;
 
 	@Column
 	private Date adddate;
+
+	@Column
+	private Date enddate;
+
+	@Column
+	private String email;
 
 	@Column
 	private String content;
 
 	@Column
 	private Long state;
+
+	@Column
+	private Long number;
 
 
 	public Long getId() {
@@ -45,12 +54,12 @@ public class News{
 		this.title = title;
 	}
 
-	public Long getUserid() {
-		return userid;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setUserid(Long userid) {
-		this.userid = userid;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public Date getAdddate() {
@@ -59,6 +68,22 @@ public class News{
 
 	public void setAdddate(Date adddate) {
 		this.adddate = adddate;
+	}
+
+	public Date getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getContent() {
@@ -75,5 +100,13 @@ public class News{
 
 	public void setState(Long state) {
 		this.state = state;
+	}
+
+	public Long getNumber() {
+		return number;
+	}
+
+	public void setNumber(Long number) {
+		this.number = number;
 	}
 }

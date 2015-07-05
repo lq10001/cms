@@ -4,7 +4,7 @@ var selected1 = "";
 %>
 
 <div class="bjui-pageHeader">
-	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/newstype" method="post">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/webinfo" method="post">
 
 
 		<input type="hidden" name="pageSize" value="${page.pageSize}" />
@@ -12,24 +12,27 @@ var selected1 = "";
 
 		<div class="bjui-searchBar">
 
-				<label for="j_name">名称：</label>
-				<input type="text"  id="j_name" name="name" value="${newstype.name!}" class="form-control" size="10"/>
+				<label for="j_webname">网站名：</label>
+				<input type="text"  id="j_webname" name="webname" value="${webinfo.webname!}" class="form-control" size="10"/>
+
+				<label for="j_phone">联系电话：</label>
+				<input type="text"  id="j_phone" name="phone" value="${webinfo.phone!}" class="form-control" size="10"/>
 
 			<button type="submit" class="btn-default" data-icon="search">查询</button>
 			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
 
 			<div class="pull-right">
 
-				<a  href="${ctxPath}/newstype/edit" class="btn btn-default" data-id="dialog_newstype_edit" data-toggle="dialog"
+				<a  href="${ctxPath}/webinfo/edit" class="btn btn-default" data-id="dialog_webinfo_edit" data-toggle="dialog"
 					data-width="500" data-height="300"  data-mask="true">添加</a>					
 
-				<a  href="${ctxPath}/newstype/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_newstype_edit" data-toggle="dialog"
+				<a  href="${ctxPath}/webinfo/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_webinfo_edit" data-toggle="dialog"
 					data-width="500" data-height="300"  data-mask="true">编辑</a>
 
-				<a  href="${ctxPath}/newstype/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_newstype_edit" data-toggle="dialog"
+				<a  href="${ctxPath}/webinfo/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_webinfo_edit" data-toggle="dialog"
 					data-width="500" data-height="300" data-mask="true">复制添加</a>
 
-				<a href="${ctxPath}/newstype/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
+				<a href="${ctxPath}/webinfo/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
 
 
 				&nbsp;&nbsp;
@@ -47,7 +50,23 @@ var selected1 = "";
 
 					<th width="50">编号</th>
 
-					<th>名称</th>
+					<th>网站名</th>
+
+					<th>网站地址</th>
+
+					<th>logo</th>
+
+					<th>slogo</th>
+
+					<th>mlogo</th>
+
+					<th>备案号</th>
+
+					<th>联系电话</th>
+
+					<th>QQ</th>
+
+					<th>EMail</th>
 
 		</tr>
 		</thead>
@@ -69,7 +88,63 @@ var selected1 = "";
 
 
 			<td>
-				 ${obj.name!}
+				 ${obj.webname!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.weburl!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.logourl!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.slogourl!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.mlogourl!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.recordno!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.phone!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.qq!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.email!}
 			</td>
 
 

@@ -1,6 +1,6 @@
 package com.ly.cms.action;
 
-import com.ly.comm.Dwz;
+import com.ly.comm.Bjui;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
 import org.nutz.dao.Cnd;
@@ -15,6 +15,9 @@ import org.nutz.mvc.filter.CheckSession;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+
+import net.sf.ehcache.CacheManager;
+
 
 import com.ly.cms.vo.Link;
 import com.ly.cms.service.LinkService;
@@ -36,36 +39,58 @@ public class LinkAction {
     public void index(@Param("..")Page p,
                       @Param("..")Link link,
                       HttpServletRequest request){
-        Cnd c = new ParseObj(link).getCnd();
-        List<Link> list_m = linkService.query(c, p);
-        p.setRecordCount(linkService.count(c));
 
-        request.setAttribute("list_obj", list_m);
+        Cnd c = new ParseObj(link).getCnd();
+        if (c == null || c.equals(""))
+        {
+            p.setRecordCount(linkService.listCount(c));
+            request.setAttribute("list_obj", linkService.queryCache(c,p));
+        }else{
+            p.setRecordCount(linkService.count(c));
+            request.setAttribute("list_obj", linkService.query(c,p));
+        }
+
         request.setAttribute("page", p);
         request.setAttribute("link", link);
     }
 
     @At
     @Ok("beetl:/WEB-INF/cms/link.html")
-    public void edit(@Param("id")Long id,
+    public void edit(@Param("action")int action,
+                     @Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("link", null);
         }else{
-            request.setAttribute("link", linkService.fetch(id));
+
+            Link link = linkService.fetch(id);
+            if (action == 3)
+            {
+                //link.setName(null);
+            }
+            request.setAttribute("link", link);
         }
+        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save( @Param("..")Link link){
+    public Map<String,String> save(@Param("action")int action,
+                                @Param("..")Link link){
         Object rtnObject;
         if (link.getId() == null || link.getId() == 0) {
             rtnObject = linkService.dao().insert(link);
         }else{
-            rtnObject = linkService.dao().updateIgnoreNull(link);
+            if (action == 3) {
+                link.setId(null);
+                rtnObject = linkService.dao().insert(link);
+            }else{
+                rtnObject = linkService.dao().updateIgnoreNull(link);
+            }
         }
-        return Dwz.rtnMap((rtnObject == null) ? false : true, "link", "closeCurrent");
+        CacheManager.getInstance().getCache(LinkService.CACHE_NAME).removeAll();
+        return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_link", true);
+
     }
 
     @At
@@ -73,7 +98,8 @@ public class LinkAction {
     public Map<String,String> del(@Param("id")Long id)
     {
         int num =  linkService.delete(id);
-        return Dwz.rtnMap((num > 0) ? true : false , "link", "");
+        CacheManager.getInstance().getCache(LinkService.CACHE_NAME).removeAll();
+        return Bjui.rtnMap((num > 0) ? true : false , "tab_link",false);
     }
 
 }

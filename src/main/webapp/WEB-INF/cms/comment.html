@@ -3,9 +3,9 @@
 var selected1 = "";
 %>
 <div class="bjui-pageContent">
-  <form method="post" action="${ctxPath}/newstype/save" class="pageForm" data-toggle="validate">
+  <form method="post" action="${ctxPath}/comment/save" class="pageForm" data-toggle="validate">
 
-    <input type="hidden" id="id" name="id" value="${newstype.id!}">
+    <input type="hidden" id="id" name="id" value="${comment.id!}">
     <input type="hidden" id="action" name="action" value="${action!}">
 
 
@@ -17,8 +17,15 @@ var selected1 = "";
 
 				<tr>
 					<td>
-						<label for="j_name" class="control-label x85">名称</label>
-						<input type="text" name="name" id="j_name" value="${newstype.name!}" data-rule="" size="20">
+						<label for="j_userid" class="control-label x85">用户id</label>
+						<input type="text" name="userid" id="j_userid" value="${comment.userid!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_content" class="control-label x85">内容</label>
+						<input type="text" name="content" id="j_content" value="${comment.content!}" data-rule="" size="20">
 		            </td>
 		        </tr>
 

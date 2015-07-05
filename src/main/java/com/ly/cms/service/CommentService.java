@@ -1,6 +1,6 @@
 package  com.ly.cms.service;
 
-import com.ly.cms.vo.Ad;
+import com.ly.cms.vo.Comment;
 import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
@@ -14,25 +14,25 @@ import java.util.List;
 
 
 @IocBean(fields = { "dao" })
-public class AdService extends IdEntityService<Ad> {
+public class CommentService extends IdEntityService<Comment> {
 
-	public static String CACHE_NAME = "ad";
-    public static String CACHE_COUNT_KEY = "ad_count";
+	public static String CACHE_NAME = "comment";
+    public static String CACHE_COUNT_KEY = "comment_count";
 
-    public List<Ad> queryCache(Condition c,Page p)
+    public List<Comment> queryCache(Condition c,Page p)
     {
-        List<Ad> list_ad = null;
-        String cacheKey = "ad_list_" + p.getPageCurrent();
+        List<Comment> list_comment = null;
+        String cacheKey = "comment_list_" + p.getPageCurrent();
 
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
         if(cache.get(cacheKey) == null)
         {
-            list_ad = this.query(c, p);
-            cache.put(new Element(cacheKey, list_ad));
+            list_comment = this.query(c, p);
+            cache.put(new Element(cacheKey, list_comment));
         }else{
-            list_ad = (List<Ad>)cache.get(cacheKey).getObjectValue();
+            list_comment = (List<Comment>)cache.get(cacheKey).getObjectValue();
         }
-        return list_ad;
+        return list_comment;
     }
 
     public int listCount(Condition c)

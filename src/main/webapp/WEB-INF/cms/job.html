@@ -1,0 +1,91 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent">
+  <form method="post" action="${ctxPath}/job/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${job.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_title" class="control-label x85">标题</label>
+						<input type="text" name="title" id="j_title" value="${job.title!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_author" class="control-label x85">作者</label>
+						<input type="text" name="author" id="j_author" value="${job.author!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_adddate" class="control-label x85">添加日期</label>
+
+						<input type="text" name="adddate" id="j_adddate" value="${job.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_enddate" class="control-label x85">结束时间</label>
+
+						<input type="text" name="enddate" id="j_enddate" value="${job.enddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_email" class="control-label x85">email</label>
+						<input type="text" name="email" id="j_email" value="${job.email!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_content" class="control-label x85">内容</label>
+						<input type="text" name="content" id="j_content" value="${job.content!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_state" class="control-label x85">状态</label>
+						<input type="text" name="state" id="j_state" value="${job.state!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_number" class="control-label x85">数量</label>
+						<input type="text" name="number" id="j_number" value="${job.number!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

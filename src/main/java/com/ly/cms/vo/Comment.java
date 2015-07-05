@@ -6,27 +6,18 @@ import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.View;
 
-@Table("news")
-public class News{
+@Table("comment")
+public class Comment{
 
 	@Id
 	@Column
 	private Long id;
 
 	@Column
-	private String title;
-
-	@Column
 	private Long userid;
 
 	@Column
-	private Date adddate;
-
-	@Column
 	private String content;
-
-	@Column
-	private Long state;
 
 
 	public Long getId() {
@@ -37,14 +28,6 @@ public class News{
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public Long getUserid() {
 		return userid;
 	}
@@ -53,27 +36,11 @@ public class News{
 		this.userid = userid;
 	}
 
-	public Date getAdddate() {
-		return adddate;
-	}
-
-	public void setAdddate(Date adddate) {
-		this.adddate = adddate;
-	}
-
 	public String getContent() {
 		return content;
 	}
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public Long getState() {
-		return state;
-	}
-
-	public void setState(Long state) {
-		this.state = state;
 	}
 }

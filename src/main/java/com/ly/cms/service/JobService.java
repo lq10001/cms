@@ -1,6 +1,6 @@
 package  com.ly.cms.service;
 
-import com.ly.cms.vo.Ad;
+import com.ly.cms.vo.Job;
 import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
@@ -14,25 +14,25 @@ import java.util.List;
 
 
 @IocBean(fields = { "dao" })
-public class AdService extends IdEntityService<Ad> {
+public class JobService extends IdEntityService<Job> {
 
-	public static String CACHE_NAME = "ad";
-    public static String CACHE_COUNT_KEY = "ad_count";
+	public static String CACHE_NAME = "job";
+    public static String CACHE_COUNT_KEY = "job_count";
 
-    public List<Ad> queryCache(Condition c,Page p)
+    public List<Job> queryCache(Condition c,Page p)
     {
-        List<Ad> list_ad = null;
-        String cacheKey = "ad_list_" + p.getPageCurrent();
+        List<Job> list_job = null;
+        String cacheKey = "job_list_" + p.getPageCurrent();
 
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
         if(cache.get(cacheKey) == null)
         {
-            list_ad = this.query(c, p);
-            cache.put(new Element(cacheKey, list_ad));
+            list_job = this.query(c, p);
+            cache.put(new Element(cacheKey, list_job));
         }else{
-            list_ad = (List<Ad>)cache.get(cacheKey).getObjectValue();
+            list_job = (List<Job>)cache.get(cacheKey).getObjectValue();
         }
-        return list_ad;
+        return list_job;
     }
 
     public int listCount(Condition c)

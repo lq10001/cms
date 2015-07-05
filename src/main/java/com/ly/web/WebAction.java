@@ -27,4 +27,12 @@ public class WebAction {
 	{
         request.setAttribute("info", infoService.fetch(1L));
     }
+
+
+    @At
+    @Ok("beetl:/WEB-INF/product.html")
+    public void product(HttpServletRequest request)
+    {
+        request.setAttribute("info", infoService.fetch(1L));
+    }
 }
