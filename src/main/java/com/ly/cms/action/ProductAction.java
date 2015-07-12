@@ -24,7 +24,7 @@ import com.ly.cms.service.ProductService;
 
 
 @IocBean
-@At("/product")
+@At("admin/product")
 @Fail("json")
 @Filters(@By(type=CheckSession.class, args={"username", "/WEB-INF/login.html"}))
 public class ProductAction {

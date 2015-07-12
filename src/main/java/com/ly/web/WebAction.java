@@ -31,15 +31,35 @@ public class WebAction {
     @Ok("beetl:/WEB-INF/index.html")
 	public void index(HttpServletRequest request)
 	{
+        request.setAttribute("action_url","#");
         request.setAttribute("webmenu_list",webmenuService.queryCache(null,new Page()));
         request.setAttribute("info", infoService.fetch(1L));
     }
 
 
-    @At
-    @Ok("beetl:/WEB-INF/product.html")
+    @At("product")
+    @Ok("beetl:/WEB-INF/index.html")
     public void product(HttpServletRequest request)
     {
+        String action_url =  request.getServletPath();
+
+        System.out.println(action_url);
+
+        request.setAttribute("action_url",action_url);
+        request.setAttribute("webmenu_list",webmenuService.queryCache(null,new Page()));
         request.setAttribute("info", infoService.fetch(1L));
     }
+
+    @At("linkme")
+    @Ok("beetl:/WEB-INF/index.html")
+    public void linkme(HttpServletRequest request)
+    {
+        String action_url =  request.getServletPath();
+
+        request.setAttribute("action_url",action_url);
+        request.setAttribute("webmenu_list",webmenuService.queryCache(null,new Page()));
+        request.setAttribute("info", infoService.fetch(1L));
+    }
+
+
 }
