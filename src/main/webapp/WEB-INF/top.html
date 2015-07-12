@@ -10,9 +10,14 @@
 
     <div class="am-collapse am-topbar-collapse" id="collapse-head">
       <ul class="am-nav am-nav-pills am-topbar-nav">
-        <li class="am-active"><a href="${ctxPath}">首 页</a></li>
-        <li><a href="${ctxPath}/product">产 品</a></li>
-        <li><a href="${ctxPath}/linkme">联系我们</a></li>
+
+        <%
+        var sel = "";
+        for(obj in webmenu_list){
+          sel = (obj.url == "#" ? "am-active" : "");
+        %>
+        <li class="${sel}"><a href="${obj.url}">${obj.name}</a></li>
+        <%}%>
       </ul>
 
       <div class="am-topbar-right">

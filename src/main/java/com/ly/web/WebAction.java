@@ -1,5 +1,7 @@
 package com.ly.web;
 
+import com.ly.cms.service.WebmenuService;
+import com.ly.comm.Page;
 import com.ly.sys.service.InfoService;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -9,6 +11,7 @@ import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Fail;
 import org.nutz.mvc.annotation.Ok;
 
+import javax.jws.WebService;
 import javax.servlet.http.HttpServletRequest;
 
 @IocBean
@@ -20,11 +23,15 @@ public class WebAction {
 
     @Inject
     private InfoService infoService;
+
+    @Inject
+    private WebmenuService webmenuService;
 	
 	@At("")
     @Ok("beetl:/WEB-INF/index.html")
 	public void index(HttpServletRequest request)
 	{
+        request.setAttribute("webmenu_list",webmenuService.queryCache(null,new Page()));
         request.setAttribute("info", infoService.fetch(1L));
     }
 
