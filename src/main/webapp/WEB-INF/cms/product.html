@@ -3,13 +3,14 @@
 var selected1 = "";
 %>
 <div class="bjui-pageContent">
-  <form method="post" action="${ctxPath}/product/save" class="pageForm" data-toggle="validate">
+  <form method="post" action="${ctxPath}/product/save" enctype="multipart/form-data" class="pageForm" data-toggle="validate">
 
     <input type="hidden" id="id" name="id" value="${product.id!}">
     <input type="hidden" id="action" name="action" value="${action!}">
+	  <input type="hidden" id="smallimage" name="smallimage" value="${product.smallimage!}">
+	  <input type="hidden" id="maximage" name="maximage" value="${product.maximage!}">
 
-
-    	<div class="pageFormContent" data-layout-h="0">
+	  <div class="pageFormContent" data-layout-h="0">
 
     		<table class="table table-condensed table-hover" width="100%">
 				<tbody>
@@ -18,38 +19,66 @@ var selected1 = "";
 				<tr>
 					<td>
 						<label for="j_name" class="control-label x85">名称</label>
-						<input type="text" name="name" id="j_name" value="${product.name!}" data-rule="" size="20">
+						<input type="text" name="name" id="j_name" value="${product.name!}" data-rule="" size="40">
 		            </td>
 		        </tr>
 
 				<tr>
 					<td>
-						<label for="j_smallimage" class="control-label x85">产品小图</label>
-						<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+						<label for="j_dataurl" class="control-label x85">体验地址</label>
+						<input type="text" name="dataurl" id="j_dataurl" value="${product.dataurl!}" data-rule="" size="40">
+					</td>
+				</tr>
 
 				<tr>
 					<td>
-						<label for="j_maximage" class="control-label x85">产品大图</label>
-						<input type="text" name="maximage" id="j_maximage" value="${product.maximage!}" data-rule="" size="20">
+						<label for="file1" class="control-label x85">产品小图</label>
+						<input id="file1" type="file" name="file1" >
+						<span>300*200</span>
+						<!--<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">-->
 		            </td>
 		        </tr>
+
+				<%if(!isEmpty(product.id)){%>
+				<tr>
+					<td style="height: 100px;">
+						<label  class="control-label x85">小图预览</label>
+						<img src="${ctxPath}/upload/${product.smallimage!}" style="width: 100px;height: 100px">
+						<!--<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">-->
+					</td>
+				</tr>
+				<%}%>
+
+				<tr>
+					<td>
+						<label for="file2" class="control-label x85">产品大图</label>
+						<input id="file2" type="file" name="file2" >
+						<span>600*400</span>
+						<!--<input type="text" name="maximage" id="j_maximage" value="${product.maximage!}" data-rule="" size="20">-->
+		            </td>
+		        </tr>
+
+				<%if(!isEmpty(product.id)){%>
+				<tr>
+					<td style="height: 100px;">
+						<label  class="control-label x85">大图预览</label>
+						<img src="${ctxPath}/upload/${product.maximage!}" style="width: 100px;height: 100px">
+						<!--<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">-->
+					</td>
+				</tr>
+				<%}%>
 
 				<tr>
 					<td>
 						<label for="j_descript" class="control-label x85">描述</label>
-						<input type="text" name="descript" id="j_descript" value="${product.descript!}" data-rule="" size="20">
+						<div style="display: inline-block; vertical-align: middle;">
+							<textarea name="descript" id="j_descript" class="j-content" style="width: 720px;" data-toggle="kindeditor" data-minheight="400">${product.descript!}
+							</textarea>
+						</div>
+
+						<!--<input type="text" name="descript" id="j_descript" value="${product.descript!}" data-rule="" size="20">-->
 		            </td>
 		        </tr>
-
-				<tr>
-					<td>
-						<label for="j_dataurl" class="control-label x85">资料地址</label>
-						<input type="text" name="dataurl" id="j_dataurl" value="${product.dataurl!}" data-rule="" size="20">
-		            </td>
-		        </tr>
-
 				</tbody>
 			</table>
 		</div>

@@ -1,8 +1,10 @@
 package com.ly.web;
 
+import com.ly.cms.service.ProductService;
 import com.ly.cms.service.WebmenuService;
 import com.ly.comm.Page;
 import com.ly.sys.service.InfoService;
+import org.nutz.dao.Cnd;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.log.Log;
@@ -26,20 +28,28 @@ public class WebAction {
 
     @Inject
     private WebmenuService webmenuService;
+
+    @Inject
+    private ProductService productService;
 	
 	@At("")
     @Ok("beetl:/WEB-INF/index.html")
 	public void index(HttpServletRequest request)
 	{
+        Page p = new Page();
+        p.setPageSize(8);
+
         request.setAttribute("action_url","#");
         request.setAttribute("webmenu_list",webmenuService.queryCache(null,new Page()));
+        request.setAttribute("product_list",productService.queryCache(null,p));
+
         request.setAttribute("info", infoService.fetch(1L));
     }
 
 
-    @At("product")
+    @At
     @Ok("beetl:/WEB-INF/index.html")
-    public void product(HttpServletRequest request)
+    public void newProduct(HttpServletRequest request)
     {
         String action_url =  request.getServletPath();
 
@@ -50,8 +60,8 @@ public class WebAction {
         request.setAttribute("info", infoService.fetch(1L));
     }
 
-    @At("linkme")
-    @Ok("beetl:/WEB-INF/index.html")
+    @At
+    @Ok("beetl:/WEB-INF/linkme.html")
     public void linkme(HttpServletRequest request)
     {
         String action_url =  request.getServletPath();

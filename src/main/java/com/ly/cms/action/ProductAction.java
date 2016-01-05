@@ -7,12 +7,15 @@ import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.lang.Files;
 import org.nutz.log.Log;
 import org.nutz.log.Logs;
 import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -21,10 +24,11 @@ import net.sf.ehcache.CacheManager;
 
 import com.ly.cms.vo.Product;
 import com.ly.cms.service.ProductService;
+import org.nutz.mvc.upload.UploadAdaptor;
 
 
 @IocBean
-@At("admin/product")
+@At("product")
 @Fail("json")
 @Filters(@By(type=CheckSession.class, args={"username", "/WEB-INF/login.html"}))
 public class ProductAction {
@@ -75,9 +79,47 @@ public class ProductAction {
 
     @At
     @Ok("json")
+    @AdaptBy(type = UploadAdaptor.class, args = { "ioc:uploadFile" })
     public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Product product){
+                                @Param("..")Product product,
+                                @Param("file1") File f1,
+                                @Param("file2") File f2,
+                                HttpServletRequest request
+     )throws IOException {
         Object rtnObject;
+
+        String webPath =  request.getServletContext().getRealPath("/");
+        String appPath = webPath + "upload/";
+
+        if (f1 != null)
+        {
+            if (product.getSmallimage() != null)
+            {
+                String oldFileName = product.getSmallimage().trim();
+                if (oldFileName.length() > 2)
+                {
+                    Files.deleteFile(new File(appPath + oldFileName));
+                }
+            }
+
+            String fileName = System.currentTimeMillis()+f1.getName();
+            Files.copyFile(f1, new File(appPath + fileName));
+            product.setSmallimage(fileName);
+        }
+        if (f2 != null)
+        {
+            if (product.getMaximage() != null) {
+                String oldImgName = product.getMaximage().trim();
+                if (oldImgName.length() > 2) {
+                    Files.deleteFile(new File(appPath + oldImgName));
+                }
+            }
+
+            String fileName2 = System.currentTimeMillis()+f2.getName();
+            Files.copyFile(f2, new File(appPath + fileName2));
+            product.setMaximage(fileName2);
+        }
+
         if (product.getId() == null || product.getId() == 0) {
             rtnObject = productService.dao().insert(product);
         }else{

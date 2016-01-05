@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>六亿CMS</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="${ctxPath}/AmazeUI/i/favicon.png">
+  <link rel="stylesheet" href="${ctxPath}/AmazeUI/css/amazeui.min.css"/>
+  <style>
+
+    .get {
+      background: #10a0ea;
+      color: #fff;
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 15px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    /*
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+    */
+  </style>
+</head>
+<body>
+
+<!--Header-->
+
+<%
+include("top.html"){}
+%>
+
+<!--简介-->
+<div class="get">
+  <div class="am-g">
+    <div class="am-u-lg-12">
+      <h1 class="get-title">六亿科技 - 做全球最强企业管理软件解决方案提供商</h1>
+
+      <p>
+        期待你的参与，六亿科技将帮助各行业不同规模的企业实现卓越运营。
+      </p>
+
+      <p>
+        联系电话:18982280521 &nbsp;&nbsp;&nbsp;&nbsp;交流Q群: 239976281
+      </p>
+
+      <p>
+        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">试用产品</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!--最新产品-->
+<div class="detail" style="background-color:#f8f8f8;">
+  <div class="am-g am-container">
+
+
+    <h2 class="detail-h2">
+      具体地址:
+    </h2>
+
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
+  am-avg-md-1 am-avg-lg-1 am-gallery-default" data-am-gallery="{ pureview:false }">
+      <li>
+        <div class="am-gallery-item">
+          <a href="http://j.map.baidu.com/yWkX7" class="" target="_blank">
+            <img src="${ctxPath}/upload/map2.png" alt="远方 有一个地方 那里种有我们的梦想"
+                    />
+          </a>
+        </div>
+      </li>
+
+
+
+    </ul>
+  </div>
+</div>
+
+
+
+<!--Footer-->
+<%
+include("footer.html"){}
+%>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="${ctxPath}/AmazeUI/js/polyfill/rem.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/polyfill/respond.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="${ctxPath}/AmazeUI/js/jquery.min.js"></script>
+<script src="${ctxPath}/AmazeUI/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>
