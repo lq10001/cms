@@ -2,15 +2,15 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>Landing Page | Amaze UI Example</title>
+  <title>六亿软件</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="alternate icon" type="image/png" href="${ctxPath}/AmazeUI/i/favicon.png">
-  <link rel="stylesheet" href="${ctxPath}/AmazeUI/css/amazeui.min.css"/>
+  <link rel="alternate icon" type="image/png" href="./AmazeUI/i/favicon.png">
+  <link rel="stylesheet" href="./AmazeUI/css/amazeui.min.css"/>
   <style>
 
 
@@ -87,59 +87,71 @@
       text-align: center;
     }
 
-    /*
-    .footer p {
-      color: #7f8c8d;
-      margin: 0;
-      padding: 15px 0;
-      text-align: center;
-      background: #2d3e50;
-    }
-    */
+
   </style>
 </head>
 <body>
 
 <!--Header-->
 
-<%
-include("top.html"){}
-%>
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="#">六亿软件</a>
+    </h1>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+
+
+        <li ><a href="#">首页</a></li>
+        <li ><a href="#product">产品</a></li>
+        <li ><a href="#linkme">联系我们</a></li>
+
+      </ul>
+
+
+      <!--<div class="am-topbar-right">-->
+        <!--<button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>-->
+      <!--</div>-->
+
+      <!--<div class="am-topbar-right">-->
+        <!--<button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>-->
+      <!--</div>-->
+    </div>
+  </div>
+</header>
 
 <!--简介-->
+<section id="home">
 <div class="get">
   <div class="am-g">
     <div class="am-u-lg-12">
-      <h1 class="get-title">六亿科技 - 做全球最强企业管理软件解决方案提供商</h1>
+      <h1 class="get-title">六亿软件 - 做最好的管理软件解决方案提供者</h1>
 
       <p>
-        期待你的参与，六亿科技将帮助各行业不同规模的企业实现卓越运营。
-      </p>
-
-      <p>
-        联系电话:18982280521 &nbsp;&nbsp;&nbsp;&nbsp;交流Q群: 239976281
-      </p>
-
-      <p>
-        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">试用产品</a>
+        期待你的使用，六亿软件将帮助您实现卓越管理
       </p>
     </div>
   </div>
 </div>
+</section>
 
 <!--最新产品-->
-<div class="detail" style="background-color:#f8f8f8;">
+<section id="product">
+<div class="detail" style="background-color:#f8f8f8;" >
   <div class="am-g am-container">
 
 
     <h2 class="detail-h2">
-      最新产品
-      <span class="am-fr sm-block" style="line-height: 33px; font-weight:normal; font-size:14px ;">
-        <a href="textile.php">更多产品...</a></span>
+      产品展示
+      <!--<span class="am-fr sm-block" style="line-height: 33px; font-weight:normal; font-size:14px ;">-->
+        <!--<a href="textile.php">更多产品...</a></span>-->
     </h2>
 
     <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
   am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview:false }">
+
 
       <%
       for(product in product_list){
@@ -156,111 +168,116 @@ include("top.html"){}
       </li>
       <%}%>
 
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="#" >
+            <img src="friend-contact.jpg" alt="" style="width: 220px;height: 150px;"
+                    />
+            <h3 class="am-gallery-title">六亿人脉管理App</h3>
+            <div class="am-gallery-desc">敬请期待</div>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="#" >
+            <img src="note-edit2.jpg" alt="" style="width: 220px;height: 150px;"
+                    />
+            <h3 class="am-gallery-title">六亿任务管理App</h3>
+            <div class="am-gallery-desc">敬请期待</div>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="#" >
+            <img src="com-index.jpg" alt="" style="width: 220px;height: 150px;"
+                    />
+            <h3 class="am-gallery-title">六亿组件管理系统</h3>
+            <div class="am-gallery-desc">敬请期待</div>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="am-gallery-item">
+          <a href="#" >
+            <img src="blog-info.jpg" alt="${product.name!}" style="width: 220px;height: 150px;"
+                    />
+            <h3 class="am-gallery-title">六亿Blog管理</h3>
+            <div class="am-gallery-desc">敬请期待</div>
+          </a>
+        </div>
+      </li>
+
+
     </ul>
   </div>
 </div>
+</section>
 
-
-<!--合作伙伴-->
+<!--联系我们-->
+<section id="linkme">
 <div class="detail" style="background-color:#f8f8f8;">
   <div class="am-g am-container">
 
 
     <h2 class="detail-h2">
-      合作伙伴
+      联系我们
     </h2>
 
     <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
-  am-avg-md-4 am-avg-lg-8 am-gallery-default" data-am-gallery="{ pureview:false }">
+  am-avg-md-4 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview:false }">
+      <li></li>
       <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想"
-                    />
-            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方"
-                    />
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信"
-                    />
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
-                    />
-          </a>
+        <div class="am-gallery-item" style="align-content: center">
+            <img src="http://lycms.oss-cn-qingdao.aliyuncs.com/weixin.jpg" alt="weixin" style="width: 210px;height: 210px;"/>
+            <h3 class="am-gallery-title"></h3>
         </div>
       </li>
 
       <li>
         <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
-                    />
-          </a>
+          <p></p>
+          <p>微信号:dongfangx</p>
+          <p>QQ:239976281</p>
+          <p>QQ群:579902142</p>
+          <p>Email:dongfang.x@qq.com</p>
         </div>
       </li>
+      <li></li>
 
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
-                    />
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"
-                    />
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-            <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路"/>
-          </a>
-        </div>
-      </li>
 
     </ul>
   </div>
 </div>
+</section>
+
 
 <!--Footer-->
-<%
-include("footer.html"){}
-%>
+<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+  <div class="am-footer-miscs ">
+    <p>由
+      <a href="#" title="六亿软件">六亿软件</a>提供技术支持</p>
+    <br/>
+    <p>Copyright © 2016</p>
+  </div>
+</footer>
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="${ctxPath}/AmazeUI/js/polyfill/rem.min.js"></script>
-<script src="${ctxPath}/AmazeUI/js/polyfill/respond.min.js"></script>
-<script src="${ctxPath}/AmazeUI/js/amazeui.legacy.js"></script>
+<script src="/AmazeUI/js/polyfill/rem.min.js"></script>
+<script src="/AmazeUI/js/polyfill/respond.min.js"></script>
+<script src="/AmazeUI/js/amazeui.legacy.js"></script>
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="${ctxPath}/AmazeUI/js/jquery.min.js"></script>
-<script src="${ctxPath}/AmazeUI/js/amazeui.min.js"></script>
+<script src="./AmazeUI/js/jquery.min.js"></script>
+<script src="./AmazeUI/js/amazeui.min.js"></script>
 <!--<![endif]-->
 </body>
 </html>
