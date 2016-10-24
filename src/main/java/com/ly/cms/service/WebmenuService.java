@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Webmenu;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class WebmenuService extends IdEntityService<Webmenu> {
 	public static String CACHE_NAME = "webmenu";
     public static String CACHE_COUNT_KEY = "webmenu_count";
 
-    public List<Webmenu> queryCache(Condition c,Page p)
+    public List<Webmenu> queryCache(Cnd c,Page p)
     {
         List<Webmenu> list_webmenu = null;
         String cacheKey = "webmenu_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class WebmenuService extends IdEntityService<Webmenu> {
         return list_webmenu;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class WebmenuService extends IdEntityService<Webmenu> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

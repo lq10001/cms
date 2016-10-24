@@ -1,6 +1,8 @@
 package com.ly.cms.action;
 
+import com.ly.Global;
 import com.ly.comm.Bjui;
+import com.ly.comm.OSSSingleton;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
 import org.nutz.dao.Cnd;
@@ -93,31 +95,30 @@ public class ProductAction {
 
         if (f1 != null)
         {
-            if (product.getSmallimage() != null)
+            if (product.getSmallimage() != null && product.getSmallimage().trim().length() > 2)
             {
-                String oldFileName = product.getSmallimage().trim();
-                if (oldFileName.length() > 2)
-                {
-                    Files.deleteFile(new File(appPath + oldFileName));
-                }
+                OSSSingleton.getInstance().delFile(product.getSmallimage());
             }
 
             String fileName = System.currentTimeMillis()+f1.getName();
-            Files.copyFile(f1, new File(appPath + fileName));
-            product.setSmallimage(fileName);
+
+            OSSSingleton.getInstance().addFile(fileName,f1);
+
+            product.setSmallimage("http://"+ Global.bucketName+"." + Global.public_endpoint + "/" + fileName);
         }
+
         if (f2 != null)
         {
-            if (product.getMaximage() != null) {
-                String oldImgName = product.getMaximage().trim();
-                if (oldImgName.length() > 2) {
-                    Files.deleteFile(new File(appPath + oldImgName));
-                }
+            if (product.getMaximage() != null && product.getMaximage().trim().length() > 2)
+            {
+                OSSSingleton.getInstance().delFile(product.getMaximage());
             }
 
-            String fileName2 = System.currentTimeMillis()+f2.getName();
-            Files.copyFile(f2, new File(appPath + fileName2));
-            product.setMaximage(fileName2);
+            String fileName = System.currentTimeMillis()+f2.getName();
+
+            OSSSingleton.getInstance().addFile(fileName,f2);
+
+            product.setMaximage("http://" + Global.bucketName + "." + Global.public_endpoint + "/" + fileName);
         }
 
         if (product.getId() == null || product.getId() == 0) {

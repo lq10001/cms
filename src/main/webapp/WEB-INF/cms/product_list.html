@@ -19,9 +19,16 @@ var selected1 = "";
 			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
 
 			<div class="pull-right">
-
 				<a  href="${ctxPath}/product/edit" class="btn btn-default" data-id="dialog_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">添加</a>					
+					data-width="800" data-height="400"  data-mask="true">添加</a>
+
+				<a  href="${ctxPath}/product/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
+					data-width="800" data-height="400"  data-mask="true">编辑</a>
+
+				<a  href="${ctxPath}/product/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
+					data-width="800" data-height="400" data-mask="true">复制添加</a>
+
+				<a href="${ctxPath}/product/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>				
 		</div>
 
 		</div>
@@ -40,6 +47,10 @@ var selected1 = "";
 
 					<th>体验地址</th>
 
+					<th width="100">产品小图</th>
+
+					<th width="100">产品大图</th>
+
 					<th>ios地址</th>
 
 					<th>iOS二维码地址</th>
@@ -47,7 +58,6 @@ var selected1 = "";
 					<th>Android地址</th>
 
 					<th>Android二维码地址</th>
-                       <th width="80">操作</th>
 
 		</tr>
 		</thead>
@@ -57,21 +67,13 @@ var selected1 = "";
         for(obj in list_obj){
         %>
 
-            <tr >
+		<tr data-id="${obj.id}">
 
 
 
 			<td>
 				 ${obj.id!}
 			</td>
-
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
 
 
 
@@ -80,14 +82,6 @@ var selected1 = "";
 				 ${obj.name!}
 			</td>
 
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
-
 
 
 
@@ -95,28 +89,18 @@ var selected1 = "";
 				 ${obj.useurl!}
 			</td>
 
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
+			<td>
+				${obj.smallimage!}
+			</td>
 
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
-
-
+			<td>
+				${obj.maximage!}
+			</td>
 
 
 			<td>
 				 ${obj.iosurl!}
 			</td>
-
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
 
 
 
@@ -125,14 +109,6 @@ var selected1 = "";
 				 ${obj.iosqrcodeurl!}
 			</td>
 
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
-
 
 
 
@@ -140,28 +116,12 @@ var selected1 = "";
 				 ${obj.androidurl!}
 			</td>
 
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
-
 
 
 
 			<td>
 				 ${obj.androidqrcodeurl!}
 			</td>
-
-				<td>
-					<a  href="${ctxPath}/product/edit?id=${obj.id}" class="btn btn-default" data-id="tab_product_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
-
-				       <a href="${ctxPath}/product/del?id=${obj.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-				</td>
 
 
             </tr>    

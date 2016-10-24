@@ -56,37 +56,23 @@ public class WebinfoAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/webinfo.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("webinfo", null);
         }else{
-
-            Webinfo webinfo = webinfoService.fetch(id);
-            if (action == 3)
-            {
-                //webinfo.setName(null);
-            }
-            request.setAttribute("webinfo", webinfo);
+            request.setAttribute("webinfo", webinfoService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Webinfo webinfo){
+    public Map<String,String> save( @Param("..")Webinfo webinfo){
         Object rtnObject;
         if (webinfo.getId() == null || webinfo.getId() == 0) {
             rtnObject = webinfoService.dao().insert(webinfo);
         }else{
-            if (action == 3) {
-                webinfo.setId(null);
-                rtnObject = webinfoService.dao().insert(webinfo);
-            }else{
-                rtnObject = webinfoService.dao().updateIgnoreNull(webinfo);
-            }
+            rtnObject = webinfoService.dao().updateIgnoreNull(webinfo);
         }
         CacheManager.getInstance().getCache(WebinfoService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_webinfo", true);

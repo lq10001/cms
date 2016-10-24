@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Job;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class JobService extends IdEntityService<Job> {
 	public static String CACHE_NAME = "job";
     public static String CACHE_COUNT_KEY = "job_count";
 
-    public List<Job> queryCache(Condition c,Page p)
+    public List<Job> queryCache(Cnd c,Page p)
     {
         List<Job> list_job = null;
         String cacheKey = "job_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class JobService extends IdEntityService<Job> {
         return list_job;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class JobService extends IdEntityService<Job> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

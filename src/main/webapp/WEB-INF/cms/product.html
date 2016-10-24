@@ -3,7 +3,7 @@
 var selected1 = "";
 %>
 <div class="bjui-pageContent tableContent">
-  <form method="post" action="${ctxPath}/product/save" class="pageForm" data-toggle="validate">
+	<form method="post" action="${ctxPath}/product/save" enctype="multipart/form-data" class="pageForm" data-toggle="validate">
 
     <input type="hidden" id="id" name="id" value="${product.id!}">
     <input type="hidden" id="action" name="action" value="${action!}">
@@ -20,37 +20,50 @@ var selected1 = "";
 						<label for="j_name" class="control-label x85">名称</label>
 						<input type="text" name="name" id="j_name" value="${product.name!}" data-rule="" size="20">
 		            </td>
-		        </tr>
 
-				<tr>
-					<td>
-						<label for="j_smallimage" class="control-label x85">产品小图</label>
-						<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">
-		            </td>
-		        </tr>
-
-				<tr>
-					<td>
-						<label for="j_maximage" class="control-label x85">产品大图</label>
-						<input type="text" name="maximage" id="j_maximage" value="${product.maximage!}" data-rule="" size="20">
-		            </td>
-		        </tr>
-
-				<tr>
 					<td>
 						<label for="j_useurl" class="control-label x85">体验地址</label>
 						<input type="text" name="useurl" id="j_useurl" value="${product.useurl!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+
+						<label for="file1" class="control-label x85">产品小图</label>
+						<input id="file1" type="file" name="file1" >
+						<span>220*150</span>
+
+						<!--<input type="text" name="smallimage" id="j_smallimage" value="${product.smallimage!}" data-rule="" size="20">-->
+		            </td>
+
+					<td>
+						<span>${product.smallimage!}</span>
 		            </td>
 		        </tr>
+
+				<tr>
+					<td>
+						<label for="file2" class="control-label x85">产品大图</label>
+						<input id="file2" type="file" name="file2" >
+						<span>440*300</span>
+					</td>
+
+					<td>
+						<span>${product.maximage!}</span>
+					</td>
+				</tr>
+
+
+
+
 
 				<tr>
 					<td>
 						<label for="j_iosurl" class="control-label x85">ios地址</label>
 						<input type="text" name="iosurl" id="j_iosurl" value="${product.iosurl!}" data-rule="" size="20">
 		            </td>
-		        </tr>
 
-				<tr>
 					<td>
 						<label for="j_iosqrcodeurl" class="control-label x85">iOS二维码地址</label>
 						<input type="text" name="iosqrcodeurl" id="j_iosqrcodeurl" value="${product.iosqrcodeurl!}" data-rule="" size="20">
@@ -62,9 +75,7 @@ var selected1 = "";
 						<label for="j_iosqrcodeimg" class="control-label x85">iOS二维码图片</label>
 						<input type="text" name="iosqrcodeimg" id="j_iosqrcodeimg" value="${product.iosqrcodeimg!}" data-rule="" size="20">
 		            </td>
-		        </tr>
 
-				<tr>
 					<td>
 						<label for="j_androidurl" class="control-label x85">Android地址</label>
 						<input type="text" name="androidurl" id="j_androidurl" value="${product.androidurl!}" data-rule="" size="20">
@@ -76,9 +87,7 @@ var selected1 = "";
 						<label for="j_androidqrcodeurl" class="control-label x85">Android二维码地址</label>
 						<input type="text" name="androidqrcodeurl" id="j_androidqrcodeurl" value="${product.androidqrcodeurl!}" data-rule="" size="20">
 		            </td>
-		        </tr>
 
-				<tr>
 					<td>
 						<label for="j_androidqrcodeimg" class="control-label x85">Android二维码图片</label>
 						<input type="text" name="androidqrcodeimg" id="j_androidqrcodeimg" value="${product.androidqrcodeimg!}" data-rule="" size="20">
@@ -90,9 +99,7 @@ var selected1 = "";
 						<label for="j_dataurl" class="control-label x85">资料地址</label>
 						<input type="text" name="dataurl" id="j_dataurl" value="${product.dataurl!}" data-rule="" size="20">
 		            </td>
-		        </tr>
 
-				<tr>
 					<td>
 						<label for="j_descript" class="control-label x85">描述</label>
 						<input type="text" name="descript" id="j_descript" value="${product.descript!}" data-rule="" size="20">

@@ -56,37 +56,23 @@ public class AdAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/ad.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("ad", null);
         }else{
-
-            Ad ad = adService.fetch(id);
-            if (action == 3)
-            {
-                //ad.setName(null);
-            }
-            request.setAttribute("ad", ad);
+            request.setAttribute("ad", adService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Ad ad){
+    public Map<String,String> save( @Param("..")Ad ad){
         Object rtnObject;
         if (ad.getId() == null || ad.getId() == 0) {
             rtnObject = adService.dao().insert(ad);
         }else{
-            if (action == 3) {
-                ad.setId(null);
-                rtnObject = adService.dao().insert(ad);
-            }else{
-                rtnObject = adService.dao().updateIgnoreNull(ad);
-            }
+            rtnObject = adService.dao().updateIgnoreNull(ad);
         }
         CacheManager.getInstance().getCache(AdService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_ad", true);

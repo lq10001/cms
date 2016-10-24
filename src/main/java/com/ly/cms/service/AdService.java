@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Ad;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class AdService extends IdEntityService<Ad> {
 	public static String CACHE_NAME = "ad";
     public static String CACHE_COUNT_KEY = "ad_count";
 
-    public List<Ad> queryCache(Condition c,Page p)
+    public List<Ad> queryCache(Cnd c,Page p)
     {
         List<Ad> list_ad = null;
         String cacheKey = "ad_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class AdService extends IdEntityService<Ad> {
         return list_ad;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class AdService extends IdEntityService<Ad> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

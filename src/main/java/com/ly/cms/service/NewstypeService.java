@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Newstype;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class NewstypeService extends IdEntityService<Newstype> {
 	public static String CACHE_NAME = "newstype";
     public static String CACHE_COUNT_KEY = "newstype_count";
 
-    public List<Newstype> queryCache(Condition c,Page p)
+    public List<Newstype> queryCache(Cnd c,Page p)
     {
         List<Newstype> list_newstype = null;
         String cacheKey = "newstype_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class NewstypeService extends IdEntityService<Newstype> {
         return list_newstype;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class NewstypeService extends IdEntityService<Newstype> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

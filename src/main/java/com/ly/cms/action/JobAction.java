@@ -56,37 +56,23 @@ public class JobAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/job.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("job", null);
         }else{
-
-            Job job = jobService.fetch(id);
-            if (action == 3)
-            {
-                //job.setName(null);
-            }
-            request.setAttribute("job", job);
+            request.setAttribute("job", jobService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Job job){
+    public Map<String,String> save( @Param("..")Job job){
         Object rtnObject;
         if (job.getId() == null || job.getId() == 0) {
             rtnObject = jobService.dao().insert(job);
         }else{
-            if (action == 3) {
-                job.setId(null);
-                rtnObject = jobService.dao().insert(job);
-            }else{
-                rtnObject = jobService.dao().updateIgnoreNull(job);
-            }
+            rtnObject = jobService.dao().updateIgnoreNull(job);
         }
         CacheManager.getInstance().getCache(JobService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_job", true);

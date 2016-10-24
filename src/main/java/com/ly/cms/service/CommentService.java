@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Comment;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class CommentService extends IdEntityService<Comment> {
 	public static String CACHE_NAME = "comment";
     public static String CACHE_COUNT_KEY = "comment_count";
 
-    public List<Comment> queryCache(Condition c,Page p)
+    public List<Comment> queryCache(Cnd c,Page p)
     {
         List<Comment> list_comment = null;
         String cacheKey = "comment_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class CommentService extends IdEntityService<Comment> {
         return list_comment;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class CommentService extends IdEntityService<Comment> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

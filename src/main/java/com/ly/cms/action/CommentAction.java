@@ -56,37 +56,23 @@ public class CommentAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/comment.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("comment", null);
         }else{
-
-            Comment comment = commentService.fetch(id);
-            if (action == 3)
-            {
-                //comment.setName(null);
-            }
-            request.setAttribute("comment", comment);
+            request.setAttribute("comment", commentService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Comment comment){
+    public Map<String,String> save( @Param("..")Comment comment){
         Object rtnObject;
         if (comment.getId() == null || comment.getId() == 0) {
             rtnObject = commentService.dao().insert(comment);
         }else{
-            if (action == 3) {
-                comment.setId(null);
-                rtnObject = commentService.dao().insert(comment);
-            }else{
-                rtnObject = commentService.dao().updateIgnoreNull(comment);
-            }
+            rtnObject = commentService.dao().updateIgnoreNull(comment);
         }
         CacheManager.getInstance().getCache(CommentService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_comment", true);

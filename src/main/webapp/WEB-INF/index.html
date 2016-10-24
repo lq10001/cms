@@ -115,9 +115,9 @@
         <!--<button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>-->
       <!--</div>-->
 
-      <!--<div class="am-topbar-right">-->
-        <!--<button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>-->
-      <!--</div>-->
+      <div class="am-topbar-right">
+        <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="${ctxPath}/admin"><span class="am-icon-user"></span> 登录</a>
+      </div>
     </div>
   </div>
 </header>
@@ -158,61 +158,15 @@
       %>
       <li>
         <div class="am-gallery-item">
-          <a href="${product.dataurl!}" class="" target="_blank">
-            <img src="${ctxPath}/upload/${product.smallimage!}" alt="${product.name!}" style="width: 220px;height: 150px;"
+          <a href="${product.useurl!}" class="" target="_blank">
+            <img src="${product.maximage!}" alt="${product.name!}" style="width: 220px;height: 150px;"
                     />
             <h3 class="am-gallery-title">${product.name!}</h3>
-            <div class="am-gallery-desc">体验地址</div>
+            <div class="am-gallery-desc">马上体验体验</div>
           </a>
         </div>
       </li>
       <%}%>
-
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="#" >
-            <img src="friend-contact.jpg" alt="" style="width: 220px;height: 150px;"
-                    />
-            <h3 class="am-gallery-title">六亿人脉管理App</h3>
-            <div class="am-gallery-desc">敬请期待</div>
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="#" >
-            <img src="note-edit2.jpg" alt="" style="width: 220px;height: 150px;"
-                    />
-            <h3 class="am-gallery-title">六亿任务管理App</h3>
-            <div class="am-gallery-desc">敬请期待</div>
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="#" >
-            <img src="com-index.jpg" alt="" style="width: 220px;height: 150px;"
-                    />
-            <h3 class="am-gallery-title">六亿组件管理系统</h3>
-            <div class="am-gallery-desc">敬请期待</div>
-          </a>
-        </div>
-      </li>
-
-      <li>
-        <div class="am-gallery-item">
-          <a href="#" >
-            <img src="blog-info.jpg" alt="${product.name!}" style="width: 220px;height: 150px;"
-                    />
-            <h3 class="am-gallery-title">六亿Blog管理</h3>
-            <div class="am-gallery-desc">敬请期待</div>
-          </a>
-        </div>
-      </li>
-
 
     </ul>
   </div>

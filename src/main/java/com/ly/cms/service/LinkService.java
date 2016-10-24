@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Link;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class LinkService extends IdEntityService<Link> {
 	public static String CACHE_NAME = "link";
     public static String CACHE_COUNT_KEY = "link_count";
 
-    public List<Link> queryCache(Condition c,Page p)
+    public List<Link> queryCache(Cnd c,Page p)
     {
         List<Link> list_link = null;
         String cacheKey = "link_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class LinkService extends IdEntityService<Link> {
         return list_link;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class LinkService extends IdEntityService<Link> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

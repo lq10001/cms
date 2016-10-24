@@ -25,7 +25,6 @@ var selected1 = "";
 			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
 
 			<div class="pull-right">
-
 				<a  href="${ctxPath}/link/edit" class="btn btn-default" data-id="dialog_link_edit" data-toggle="dialog"
 					data-width="500" data-height="300"  data-mask="true">添加</a>					
 
@@ -35,18 +34,15 @@ var selected1 = "";
 				<a  href="${ctxPath}/link/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_link_edit" data-toggle="dialog"
 					data-width="500" data-height="300" data-mask="true">复制添加</a>
 
-				<a href="${ctxPath}/link/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-
-
-				&nbsp;&nbsp;
-			</div>
+				<a href="${ctxPath}/link/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>				
+		</div>
 
 		</div>
 
 	</form>
 </div>
-<div class="bjui-pageContent">
-	<table  data-toggle="tablefixed" data-width="100%"  data-layout-h="0" data-nowrap="true">
+<div class="bjui-pageContent tableContent">
+	<table data-toggle="tablefixed" data-width="100%" >
 		<thead>
 		<tr>
 
@@ -133,7 +129,7 @@ var selected1 = "";
 
 <div class="bjui-pageFooter">
 	<div class="pages">
-		<span>每页&nbsp;</span>
+		<span>每页 </span>
 		<div class="selectPagesize">
 			<select data-toggle="selectpicker" data-toggle-change="changepagesize">
 				<option value="20">20</option>
@@ -142,7 +138,7 @@ var selected1 = "";
 				<option value="100">100</option>
 			</select>
 		</div>
-		<span>&nbsp;条，共 ${page.recordCount} 条</span>
+		<span> 条，共 ${page.recordCount} 条</span>
 	</div>
 	<div class="pagination-box" data-toggle="pagination" data-total="${page.recordCount}" data-page-size="20" data-page-current="${page.pageNumber}">
 	</div>

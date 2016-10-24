@@ -56,37 +56,23 @@ public class WebmenuAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/webmenu.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("webmenu", null);
         }else{
-
-            Webmenu webmenu = webmenuService.fetch(id);
-            if (action == 3)
-            {
-                //webmenu.setName(null);
-            }
-            request.setAttribute("webmenu", webmenu);
+            request.setAttribute("webmenu", webmenuService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Webmenu webmenu){
+    public Map<String,String> save( @Param("..")Webmenu webmenu){
         Object rtnObject;
         if (webmenu.getId() == null || webmenu.getId() == 0) {
             rtnObject = webmenuService.dao().insert(webmenu);
         }else{
-            if (action == 3) {
-                webmenu.setId(null);
-                rtnObject = webmenuService.dao().insert(webmenu);
-            }else{
-                rtnObject = webmenuService.dao().updateIgnoreNull(webmenu);
-            }
+            rtnObject = webmenuService.dao().updateIgnoreNull(webmenu);
         }
         CacheManager.getInstance().getCache(WebmenuService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_webmenu", true);

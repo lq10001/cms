@@ -1,7 +1,6 @@
 package  com.ly.cms.service;
 
 import com.ly.cms.vo.Webinfo;
-import org.nutz.dao.Condition;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.IdEntityService;
 import net.sf.ehcache.Cache;
@@ -19,7 +18,7 @@ public class WebinfoService extends IdEntityService<Webinfo> {
 	public static String CACHE_NAME = "webinfo";
     public static String CACHE_COUNT_KEY = "webinfo_count";
 
-    public List<Webinfo> queryCache(Condition c,Page p)
+    public List<Webinfo> queryCache(Cnd c,Page p)
     {
         List<Webinfo> list_webinfo = null;
         String cacheKey = "webinfo_list_" + p.getPageCurrent();
@@ -35,7 +34,7 @@ public class WebinfoService extends IdEntityService<Webinfo> {
         return list_webinfo;
     }
 
-    public int listCount(Condition c)
+    public int listCount(Cnd c)
     {
         Long num = 0L;
         Cache cache = CacheManager.getInstance().getCache(CACHE_NAME);
@@ -48,9 +47,5 @@ public class WebinfoService extends IdEntityService<Webinfo> {
         }
         return num.intValue();
     }
-
-
-
 }
-
 

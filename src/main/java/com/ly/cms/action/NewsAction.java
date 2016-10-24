@@ -56,37 +56,23 @@ public class NewsAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/news.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("news", null);
         }else{
-
-            News news = newsService.fetch(id);
-            if (action == 3)
-            {
-                //news.setName(null);
-            }
-            request.setAttribute("news", news);
+            request.setAttribute("news", newsService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")News news){
+    public Map<String,String> save( @Param("..")News news){
         Object rtnObject;
         if (news.getId() == null || news.getId() == 0) {
             rtnObject = newsService.dao().insert(news);
         }else{
-            if (action == 3) {
-                news.setId(null);
-                rtnObject = newsService.dao().insert(news);
-            }else{
-                rtnObject = newsService.dao().updateIgnoreNull(news);
-            }
+            rtnObject = newsService.dao().updateIgnoreNull(news);
         }
         CacheManager.getInstance().getCache(NewsService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_news", true);

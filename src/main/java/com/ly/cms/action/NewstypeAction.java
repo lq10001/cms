@@ -56,37 +56,23 @@ public class NewstypeAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/newstype.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("newstype", null);
         }else{
-
-            Newstype newstype = newstypeService.fetch(id);
-            if (action == 3)
-            {
-                //newstype.setName(null);
-            }
-            request.setAttribute("newstype", newstype);
+            request.setAttribute("newstype", newstypeService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Newstype newstype){
+    public Map<String,String> save( @Param("..")Newstype newstype){
         Object rtnObject;
         if (newstype.getId() == null || newstype.getId() == 0) {
             rtnObject = newstypeService.dao().insert(newstype);
         }else{
-            if (action == 3) {
-                newstype.setId(null);
-                rtnObject = newstypeService.dao().insert(newstype);
-            }else{
-                rtnObject = newstypeService.dao().updateIgnoreNull(newstype);
-            }
+            rtnObject = newstypeService.dao().updateIgnoreNull(newstype);
         }
         CacheManager.getInstance().getCache(NewstypeService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_newstype", true);

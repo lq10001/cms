@@ -56,37 +56,23 @@ public class LinkAction {
 
     @At
     @Ok("beetl:/WEB-INF/cms/link.html")
-    public void edit(@Param("action")int action,
-                     @Param("id")Long id,
+    public void edit(@Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("link", null);
         }else{
-
-            Link link = linkService.fetch(id);
-            if (action == 3)
-            {
-                //link.setName(null);
-            }
-            request.setAttribute("link", link);
+            request.setAttribute("link", linkService.fetch(id));
         }
-        request.setAttribute("action", action);
     }
 
     @At
     @Ok("json")
-    public Map<String,String> save(@Param("action")int action,
-                                @Param("..")Link link){
+    public Map<String,String> save( @Param("..")Link link){
         Object rtnObject;
         if (link.getId() == null || link.getId() == 0) {
             rtnObject = linkService.dao().insert(link);
         }else{
-            if (action == 3) {
-                link.setId(null);
-                rtnObject = linkService.dao().insert(link);
-            }else{
-                rtnObject = linkService.dao().updateIgnoreNull(link);
-            }
+            rtnObject = linkService.dao().updateIgnoreNull(link);
         }
         CacheManager.getInstance().getCache(LinkService.CACHE_NAME).removeAll();
         return Bjui.rtnMap((rtnObject == null) ? false : true, "tab_link", true);
