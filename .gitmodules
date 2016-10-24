@@ -11,3 +11,6 @@
 [submodule "src/main/webapp/sys"]
 	path = src/main/webapp/sys
 	url = git@git.oschina.net:dongfangx/sys-resources.git
+[submodule "src/main/webapp/AmazeUI"]
+	path = src/main/webapp/AmazeUI
+	url = git@git.oschina.net:dongfangx/AmazeUI.git
