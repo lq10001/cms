@@ -88,7 +88,7 @@ public class ProductAction {
      )throws IOException {
         Object rtnObject;
 
-        String webPath =  request.getServletContext().getRealPath("/");
+        String webPath =  request.getSession().getServletContext().getRealPath("/");
         String appPath = webPath + "upload/";
 
         if (f1 != null)

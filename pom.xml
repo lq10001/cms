@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
     <properties>
         <junit.version>4.12</junit.version>
-        <nutz.version>1.b.53</nutz.version>
+        <nutz.version>1.r.58</nutz.version>
         <beetl.version>2.1.4</beetl.version>
         <fastjson.version>1.2.4</fastjson.version>
         <servlet.version>3.1.0</servlet.version>
